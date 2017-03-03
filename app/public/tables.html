@@ -56,13 +56,10 @@
       for (var i = 0; i < data.length; i++) {
         var currentReserve = $("<div>");
         currentReserve.addClass("well");
-        currentReserve.attr("id", "reservation-" + i);
+        currentReserve.attr("id", "reservation-well-" + i);
         $("#currentReserve").append(currentReserve);
 
-        $("#reservation-" + i).append("<h2>" + data[i].name + "</h2>");
-        $("#reservation-" + i).append("<h3>Role: " + data[i].role + "</h4>");
-        $("#reservation-" + i).append("<h3>Age: " + data[i].age + "</h4>");
-        $("#reservation-" + i).append("<h3>Force Points: " + data[i].forcePoints + "</h4>");
+        $("#reservation-well-" + i).append("<h2><span class='label label-primary'>" + (i+1) + "</span> | " + data[i].name + "</h2>");
       }
     });
 
@@ -70,13 +67,10 @@
       for (var i = 0; i < data.length; i++) {
         var waitList = $("<div>");
         waitList.addClass("well");
-        waitList.attr("id", "character-well-" + i);
+        waitList.attr("id", "waitlist-well-" + i);
         $("#waitList").append(waitList);
 
-        $("#character-well-" + i).append("<h2>" + data[i].name + "</h2>");
-        $("#character-well-" + i).append("<h3>Role: " + data[i].role + "</h4>");
-        $("#character-well-" + i).append("<h3>Age: " + data[i].age + "</h4>");
-        $("#character-well-" + i).append("<h3>Force Points: " + data[i].forcePoints + "</h4>");
+        $("#waitlist-well-" + i).append("<h2><span class='label label-primary'>" + (i+1) + "</span> | " + data[i].name + "</h2>");
       }
     });
 
