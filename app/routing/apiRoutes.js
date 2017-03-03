@@ -49,4 +49,14 @@ module.exports = function(app) {
 			res.json({status: 'OK', location: 'waitlist'});
 		}
 	});
+
+	// Clear the reserved tables and the waitlist
+	app.get('/clear', function(req, res) {
+		console.log('__ENTER /clear__');
+
+		tables = [];
+		waitlist = [];
+
+		res.json({status: 'OK', message: 'Reservation and waitlist cleared.'});
+	});
 };
