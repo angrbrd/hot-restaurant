@@ -31,9 +31,7 @@
 	<div class="row"> 
 		<div class="panel panel-default">
 		  <div class="panel-heading">Current Reservations</div>
-		  <div class="panel-body">
-		  	<table class="table" id="current-reserve">
-		  	</table>		  
+		  <div class="panel-body" id="currentReserve">
 		  </div>
 		  
 		</div>
@@ -42,16 +40,47 @@
 	<div class="row"> <!-- Wait List --> 
 		<div class="panel panel-default">
 		  <div class="panel-heading">Wait List</div>
-		  <div class="panel-body">
-		  	<table class="table" id="wait-list">
-		  	</table>
+		  <div class="panel-body" id="waitList">
 		  </div>
 		</div>
 	</div>
 
-	<p><a href="#">API Table Link</a> | <a href="#">API Wait List</a></p> 
+	<p>Control Panel</p>
+	<p><a href="#">Clear Table</a> | <a href="/api/tables">API Table Link</a> | <a href="/api/waitlist">API Wait List</a></p> 
 
 </div> <!-- /container -->
+
+<script type="text/javascript">
+
+    $.get("/api/tables", function(data) {
+      for (var i = 0; i < data.length; i++) {
+        var currentReserve = $("<div>");
+        currentReserve.addClass("well");
+        currentReserve.attr("id", "reservation-" + i);
+        $("#currentReserve").append(currentReserve);
+
+        $("#reservation-" + i).append("<h2>" + data[i].name + "</h2>");
+        $("#reservation-" + i).append("<h3>Role: " + data[i].role + "</h4>");
+        $("#reservation-" + i).append("<h3>Age: " + data[i].age + "</h4>");
+        $("#reservation-" + i).append("<h3>Force Points: " + data[i].forcePoints + "</h4>");
+      }
+    });
+
+    $.get("/api/waitlist", function(data) {
+      for (var i = 0; i < data.length; i++) {
+        var waitList = $("<div>");
+        waitList.addClass("well");
+        waitList.attr("id", "character-well-" + i);
+        $("#waitList").append(waitList);
+
+        $("#character-well-" + i).append("<h2>" + data[i].name + "</h2>");
+        $("#character-well-" + i).append("<h3>Role: " + data[i].role + "</h4>");
+        $("#character-well-" + i).append("<h3>Age: " + data[i].age + "</h4>");
+        $("#character-well-" + i).append("<h3>Force Points: " + data[i].forcePoints + "</h4>");
+      }
+    });
+
+  </script>
 
 </body>
 </html>
