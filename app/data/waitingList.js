@@ -7,21 +7,7 @@
 
 console.log('__IMPORT waitingList.js__');
 
-var waitingArray = [
-	{
-		routeName: "Zhenya",
-		name: "Z",
-		role: "Master",
-		age: 900,
-		forcePoints: 2000
-	}, {
-		routeName: "Anya",
-		name: "Xena",
-		role: "Ruler",
-		age: 200,
-		forcePoints: 1200
-	}
-];
+var waitingArray = [];
 
 // Note how we export the array. This makes it accessible to other files using require.
 module.exports = waitingArray;
