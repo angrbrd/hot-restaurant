@@ -4,16 +4,27 @@
 // ===============================================================================
 var path = require("path");
 
+// Import the tableData and waitingList
+var tables = require('../data/tableData.js');
+var waitlist = require('../data/waitingList.js');
 
 // ===============================================================================
 // ROUTING
 // ===============================================================================
 
-module.exports = function(app) {
-  // HTML GET Requests
-  // Below code handles when users "visit" a page.
-  // In each of the below cases the user is shown an HTML page of content
-  // ---------------------------------------------------------------------------
+console.log('tables = ' + JSON.stringify(tables));
+console.log('waitlist = ' + JSON.stringify(waitlist));
 
-  // Add some routes to get the three HTML files
+module.exports = function(app) {
+	app.get('/api/tables', function(req, res) {
+		console.log('__ENTER /api/tables__');
+
+		res.json(tables);
+	});
+
+	app.get('/api/waitlist', function(req, res) {
+		console.log('__ENTER waitlist__');
+		
+		res.json(waitlist);
+	});
 };
