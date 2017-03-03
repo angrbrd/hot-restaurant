@@ -5,9 +5,22 @@
 // But you could have it be an empty array as well.
 // ===============================================================================
 
+console.log('__IMPORT waitingList.js__');
+
 var waitingArray = [
-	// objects representing customers on the waiting list go here
-	// you may want to start with some hard-coded for testing
+	{
+		routeName: "Zhenya",
+		name: "Z",
+		role: "Master",
+		age: 900,
+		forcePoints: 2000
+	}, {
+		routeName: "Anya",
+		name: "Xena",
+		role: "Ruler",
+		age: 200,
+		forcePoints: 1200
+	}
 ];
 
 
