@@ -72,7 +72,12 @@
 
 			$.post("/add", newReservation)
       		.done(function(data) {
-      				alert("Making reservation...");
+    				if(data.location === 'tables'){
+      					alert("Reservation made successfully");
+      				}
+      				else{
+      					alert('You are on the waiting list');
+      				}
         			console.log(data);
       		});
 
